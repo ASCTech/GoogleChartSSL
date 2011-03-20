@@ -1,0 +1,3 @@
+module GoogleChartSsl
+  # Your code goes here...
+end
