@@ -3,7 +3,7 @@ class Autotest::Testunit < Autotest
     super
 
     @test_mappings = {
-      %r[^test/.*\.rb$] => proc { |filename, _|
+      %r[^test/.*\_test.rb$] => proc { |filename, _|
         filename
       },
       %r[^lib/(.*)\.rb$] => proc { |_, m|
