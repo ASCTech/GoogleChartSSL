@@ -20,7 +20,7 @@ To use GoogleChartSSL in your Rails application, add the following line to your 
 
   config.middleware.use GoogleChartSsl
 
-Now, instead of making your chart request to +http://chart.apis.google.com/chart+, just send that request to +/google_chart+ will be forwarded to google and returned over your server's connection.
+Now, instead of making your chart request to \http://chart.apis.google.com/chart, just send that request to /google_chart will be forwarded to google and returned over your server's connection.
 
 
 == TODO
