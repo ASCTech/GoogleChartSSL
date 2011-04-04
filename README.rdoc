@@ -1,0 +1,48 @@
+= GoogleChartSSL
+
+Including Google Charts in your SSL-protected site causes warnings about 'Mixed Content' (particularly in Internet Explorer).  This Rack middleware allows you to point those img tags at a local path instead of Google.  The image is retreived by your server then delivered to your client over your SSL connection.
+
+== Installation
+
+  gem intall google_chart_ssl
+
+
+== Usage
+
+  require 'google_chart_ssl'
+  use GoogleChartSsl
+
+Or, if you are using Bundler, just add this to your Gemfile:
+
+  gem 'google_chart_ssl'
+
+To use GoogleChartSSL in your Rails application, add the following line to your application config file (config/application.rb for Rails3, config/environment.rb for Rails2):
+
+  config.middleware.use GoogleChartSsl
+
+Now, instead of making your chart request to +http://chart.apis.google.com/chart+, just send that request to +/google_chart+ will be forwarded to google and returned over your server's connection.
+
+
+== TODO
+
+* Automatically insert a view helper in Rails
+
+
+== Credits
+
+* Project layout provided by Bundler.
+* test setup, and this README file inspired by Tobias Matthies' Rack::SslEnforcer
+
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+
+== Copyright
+
+Copyright (c) 2011 Michael Gee. See LICENSE for details.
