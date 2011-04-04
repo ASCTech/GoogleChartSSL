@@ -17,6 +17,14 @@ class GoogleChartSslTest < Test::Unit::TestCase
 		assert_equal 'some binary PNG data', last_response.body
 	end
 
+	def test_requsts_with_a_png_extension_work_too
+		get '/google_chart.png'
+		assert_equal 200, last_response.status
+		assert_equal 'image/png', last_response.headers['Content-Type']
+		assert_equal '20', last_response.headers['Content-Length']
+		assert_equal 'some binary PNG data', last_response.body
+	end
+
 	def test_the_query_string_is_passed_to_google
 		get '/google_chart?chs=50x20'
 		assert_equal 200, last_response.status

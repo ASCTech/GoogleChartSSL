@@ -10,7 +10,7 @@ class GoogleChartSsl
 
 	def call(env)
 		@req = Rack::Request.new(env)
-		if @req.path == '/google_chart'
+		if @req.path == '/google_chart' or @req.path == '/google_chart.png'
 			path = '/chart?' + @req.query_string
 			resp = Google.request(Net::HTTP::Get.new(path))
 			headers = {
