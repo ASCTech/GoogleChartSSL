@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
 	s.email       = ["michaelpgee@gmail.com"]
 	s.homepage    = ""
 	s.summary     = %q{Indirectly serve Google Charts through your SSL connection}
-	s.description = %q{Including Google Charts in your SSL-protected site causes warnings about 'Mixed Content' (particularly in Internet Explorer.  This Rack middleware allows you to point those img tags at a local path instead of Google.  The image is retreived by your server then delivered to your client over your SSL connection.}
+	s.description = %q{Including Google Charts in your SSL-protected site causes warnings about 'Mixed Content' (particularly in Internet Explorer).  This Rack middleware allows you to point those img tags at a local path instead of Google.  The image is retreived by your server then delivered to your client over your SSL connection.}
 
 	s.rubyforge_project = "google_chart_ssl"
 
