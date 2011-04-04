@@ -13,6 +13,7 @@ class GoogleChartSslTest < Test::Unit::TestCase
 		get '/google_chart'
 		assert_equal 200, last_response.status
 		assert_equal 'image/png', last_response.headers['Content-Type']
+		assert_equal '20', last_response.headers['Content-Length']
 		assert_equal 'some binary PNG data', last_response.body
 	end
 
@@ -20,6 +21,7 @@ class GoogleChartSslTest < Test::Unit::TestCase
 		get '/google_chart?chs=50x20'
 		assert_equal 200, last_response.status
 		assert_equal 'image/png', last_response.headers['Content-Type']
+		assert_equal '24', last_response.headers['Content-Length']
 		assert_equal 'a 50px by 20px PNG image', last_response.body
 	end
 

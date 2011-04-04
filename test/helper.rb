@@ -11,10 +11,12 @@ class Test::Unit::TestCase
 
 	FakeWeb.register_uri(:get, 'http://chart.apis.google.com/chart?chs=50x20',
 	                     :body => 'a 50px by 20px PNG image',
+											 :content_length => 24,
 	                     :content_type => 'image/png')
 
 	FakeWeb.register_uri(:get, %r{\Ahttp://chart.apis.google.com},
 	                     :body => 'some binary PNG data',
+											 :content_length => 20,
 	                     :content_type => 'image/png')
 
   def app

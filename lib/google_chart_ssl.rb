@@ -13,7 +13,11 @@ class GoogleChartSsl
 		if @req.path == '/google_chart'
 			path = '/chart?' + @req.query_string
 			resp = Google.request(Net::HTTP::Get.new(path))
-			[resp.code, {'Content-Type' => resp.content_type}, [resp.body]]
+			headers = {
+				'Content-Length' => resp.content_length.to_s,
+				'Content-Type' => resp.content_type,
+			}
+			[resp.code, headers, [resp.body]]
 		else
 			@app.call(env)
 		end
