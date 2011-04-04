@@ -33,4 +33,12 @@ class GoogleChartSslTest < Test::Unit::TestCase
 		assert_equal 'a 50px by 20px PNG image', last_response.body
 	end
 
+	def test_request_might_be_namespaced
+		get '/subdir/google_chart'
+		assert_equal 200, last_response.status
+		assert_equal 'image/png', last_response.headers['Content-Type']
+		assert_equal '20', last_response.headers['Content-Length']
+		assert_equal 'some binary PNG data', last_response.body
+	end
+
 end
